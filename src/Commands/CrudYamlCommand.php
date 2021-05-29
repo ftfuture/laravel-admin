@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Commands;
+namespace ftfuture\LaravelAdmin\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -115,7 +115,7 @@ class CrudYamlCommand extends Command
     private function getFieldSchemas($resource)
     {
         return collect($resource['fields'] ?? [])->filter(function ($field, $name) {
-            return (! isset($field['db']) || $field['db'] !== false) && ! in_array($name, ['created_at', 'updated_at'], true);
+            return (!isset($field['db']) || $field['db'] !== false) && !in_array($name, ['created_at', 'updated_at'], true);
         })
             ->map(function ($field, $name) use ($resource) {
                 $name = $field['db']['name'] ?? $name;
@@ -133,7 +133,7 @@ class CrudYamlCommand extends Command
                 /**
                  * Specific database attribute
                  */
-                if (! empty($field['db']['options'])) {
+                if (!empty($field['db']['options'])) {
                     foreach ($field['db']['options'] as $attribute) {
                         $schema .= ":$attribute";
                     }

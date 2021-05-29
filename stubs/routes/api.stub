@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Okami101\LaravelAdmin\Http\Middleware\Impersonate;
+use ftfuture\LaravelAdmin\Http\Middleware\Impersonate;
 
 /*
 |--------------------------------------------------------------------------

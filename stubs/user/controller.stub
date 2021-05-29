@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
-use Okami101\LaravelAdmin\Filters\SearchFilter;
+use ftfuture\LaravelAdmin\Filters\SearchFilter;
 
 class UserController extends Controller
 {

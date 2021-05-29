@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Commands;
+namespace ftfuture\LaravelAdmin\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
@@ -44,7 +44,7 @@ class UICommand extends Command
      */
     public function handle()
     {
-        if (! $this->isVueCLIInstalled()) {
+        if (!$this->isVueCLIInstalled()) {
             return;
         }
 

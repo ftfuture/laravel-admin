@@ -2,7 +2,7 @@
 
 namespace {{ namespace }};
 
-use Okami101\LaravelAdmin\Http\Resources\BaseResource;
+use ftfuture\LaravelAdmin\Http\Resources\BaseResource;
 
 class {{ model }} extends BaseResource
 {

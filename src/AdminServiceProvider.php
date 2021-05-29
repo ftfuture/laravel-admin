@@ -1,15 +1,15 @@
 <?php
 
-namespace Okami101\LaravelAdmin;
+namespace ftfuture\LaravelAdmin;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Okami101\LaravelAdmin\Commands\CrudMakeCommand;
-use Okami101\LaravelAdmin\Commands\CrudYamlCommand;
-use Okami101\LaravelAdmin\Commands\InstallCommand;
-use Okami101\LaravelAdmin\Commands\UICommand;
-use Okami101\LaravelAdmin\Commands\UserCommand;
+use ftfuture\LaravelAdmin\Commands\CrudMakeCommand;
+use ftfuture\LaravelAdmin\Commands\CrudYamlCommand;
+use ftfuture\LaravelAdmin\Commands\InstallCommand;
+use ftfuture\LaravelAdmin\Commands\UICommand;
+use ftfuture\LaravelAdmin\Commands\UserCommand;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -20,22 +20,22 @@ class AdminServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/admin.php' => config_path('admin.php'),
-                __DIR__.'/../config/cors.php' => config_path('cors.php'),
+                __DIR__ . '/../config/admin.php' => config_path('admin.php'),
+                __DIR__ . '/../config/cors.php' => config_path('cors.php'),
             ], 'config');
 
             $this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/crud'),
+                __DIR__ . '/../resources/lang' => resource_path('lang/vendor/crud'),
             ], 'lang');
 
             $this->publishes([
-                __DIR__.'/../files/docker' => base_path('docker'),
-                __DIR__.'/../files/docker-compose.yml' => base_path('docker-compose.yml'),
-                __DIR__.'/../files/Dockerfile' => base_path('Dockerfile'),
+                __DIR__ . '/../files/docker' => base_path('docker'),
+                __DIR__ . '/../files/docker-compose.yml' => base_path('docker-compose.yml'),
+                __DIR__ . '/../files/Dockerfile' => base_path('Dockerfile'),
             ], 'docker');
 
             $this->publishes([
-                __DIR__.'/../files/.php_cs.dist' => base_path('.php_cs.dist'),
+                __DIR__ . '/../files/.php_cs.dist' => base_path('.php_cs.dist'),
             ], 'phpcs');
 
             $this->commands([
@@ -47,7 +47,7 @@ class AdminServiceProvider extends ServiceProvider
             ]);
         }
 
-        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'admin');
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'admin');
         Route::mixin(new AdminRouteMethods);
 
         Builder::macro('exportOrPaginate', function () {
@@ -66,6 +66,6 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/admin.php', 'admin');
+        $this->mergeConfigFrom(__DIR__ . '/../config/admin.php', 'admin');
     }
 }

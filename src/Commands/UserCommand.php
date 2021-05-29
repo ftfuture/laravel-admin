@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Commands;
+namespace ftfuture\LaravelAdmin\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;

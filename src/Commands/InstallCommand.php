@@ -1,11 +1,11 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Commands;
+namespace ftfuture\LaravelAdmin\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Okami101\LaravelAdmin\AdminServiceProvider;
+use ftfuture\LaravelAdmin\AdminServiceProvider;
 use Symfony\Component\Process\Process;
 
 class InstallCommand extends Command
@@ -174,7 +174,7 @@ EOF
             'api',
             <<<EOF
         \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        \Okami101\LaravelAdmin\Http\Middleware\Impersonate::class,
+        \ftufutre\LaravelAdmin\Http\Middleware\Impersonate::class,
 
 EOF
         );
@@ -242,10 +242,10 @@ EOF
         /**
          * Add user controller
          */
-        if (! $this->files->isDirectory(app_path('Http/Requests'))) {
+        if (!$this->files->isDirectory(app_path('Http/Requests'))) {
             $this->files->makeDirectory(app_path('Http/Requests'));
         }
-        if (! $this->files->isDirectory(app_path('Http/Resources'))) {
+        if (!$this->files->isDirectory(app_path('Http/Resources'))) {
             $this->files->makeDirectory(app_path('Http/Resources'));
         }
         $this->files->copy(__DIR__ . '/../../stubs/user/model.stub', app_path('User.php'));
@@ -398,7 +398,7 @@ EOF
 
     private function addToGitIgnore($line)
     {
-        if (! Str::contains($this->files->get(base_path('.gitignore')), $line)) {
+        if (!Str::contains($this->files->get(base_path('.gitignore')), $line)) {
             $this->files->append(base_path('.gitignore'), "$line\n");
         }
     }

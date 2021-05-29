@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin;
+namespace ftfuture\LaravelAdmin;
 
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +38,7 @@ class AdminRouteMethods
     public function upload()
     {
         return function () {
-            $this->post('upload', 'Okami101\LaravelAdmin\Http\Controllers\UploadController@index');
+            $this->post('upload', 'ftfuture\LaravelAdmin\Http\Controllers\UploadController@index');
         };
     }
 }

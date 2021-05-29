@@ -1,5 +1,5 @@
 {
-    "name": "okami101/laravel-admin",
+    "name": "ftfuture/laravel-admin",
     "description": "Admin panel generator for Laravel 8 and based on Vuetify Admin, a separate SPA admin framework running on top of REST APIs.",
     "keywords": [
         "laravel",
@@ -48,12 +48,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Okami101\\LaravelAdmin\\": "src"
+            "ftfuture\\LaravelAdmin\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Okami101\\LaravelAdmin\\Tests\\": "tests"
+            "ftfuture\\LaravelAdmin\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -67,7 +67,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Okami101\\LaravelAdmin\\AdminServiceProvider"
+                "ftfuture\\LaravelAdmin\\AdminServiceProvider"
             ]
         }
     },

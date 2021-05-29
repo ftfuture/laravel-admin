@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Http\Resources;
+namespace ftfuture\LaravelAdmin\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
@@ -33,7 +33,7 @@ class BaseResource extends JsonResource
 
                     $translated = $this->resource->$field;
 
-                    if (! empty($translated)) {
+                    if (!empty($translated)) {
                         $attributes[$field] = $translated;
 
                         return;
@@ -45,7 +45,7 @@ class BaseResource extends JsonResource
         /**
          * Media API generator only if media included
          */
-        if (! empty($attributes['media']) && $this->resource instanceof HasMedia) {
+        if (!empty($attributes['media']) && $this->resource instanceof HasMedia) {
             $this->resource->registerMediaCollections();
 
             /** @var MediaCollection $collection */
@@ -53,7 +53,7 @@ class BaseResource extends JsonResource
                 /** @var Collection $media */
                 $media = $this->resource->getMedia($collection->name);
 
-                if (! $collection->singleFile) {
+                if (!$collection->singleFile) {
                     foreach ($media as $file) {
                         $attributes[$collection->name][] = $this->getVersions($file);
                     }

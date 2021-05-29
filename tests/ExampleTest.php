@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Tests;
+namespace ftfuture\LaravelAdmin\Tests;
 
 use PHPUnit\Framework\TestCase;
 

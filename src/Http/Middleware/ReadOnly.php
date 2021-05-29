@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Http\Middleware;
+namespace ftfuture\LaravelAdmin\Http\Middleware;
 
 use Closure;
 
@@ -42,7 +42,7 @@ class ReadOnly
     private function isReadOnly($request)
     {
         // Only Http Verbs different than GET are concerned
-        if (! config('admin.read_only') || 'GET' === $request->method()) {
+        if (!config('admin.read_only') || 'GET' === $request->method()) {
             return false;
         }
 
@@ -53,7 +53,7 @@ class ReadOnly
             return false;
         }
 
-        return ! $this->inExceptArray($request);
+        return !$this->inExceptArray($request);
     }
 
     /**

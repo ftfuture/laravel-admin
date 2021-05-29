@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Commands;
+namespace ftfuture\LaravelAdmin\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Str;
@@ -104,18 +104,18 @@ class CrudMakeCommand extends GeneratorCommand
             /**
              * Take specific stubs
              */
-            if (! $this->hasMedia() && $this->isTranslatable()) {
+            if (!$this->hasMedia() && $this->isTranslatable()) {
                 $stub .= '.translatable';
             }
-            if ($this->hasMedia() && ! $this->isTranslatable()) {
+            if ($this->hasMedia() && !$this->isTranslatable()) {
                 $stub .= '.media';
             }
-            if (! $this->hasMedia() && ! $this->isTranslatable()) {
+            if (!$this->hasMedia() && !$this->isTranslatable()) {
                 $stub .= '.plain';
             }
         }
 
-        return __DIR__."/../../stubs/{$stub}.stub";
+        return __DIR__ . "/../../stubs/{$stub}.stub";
     }
 
     /**
@@ -126,7 +126,7 @@ class CrudMakeCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.($this->getType()['namespace'] ?? null);
+        return $rootNamespace . ($this->getType()['namespace'] ?? null);
     }
 
     /**
@@ -157,12 +157,12 @@ class CrudMakeCommand extends GeneratorCommand
 
     private function hasMedia()
     {
-        return ! empty($this->option('media'));
+        return !empty($this->option('media'));
     }
 
     private function isTranslatable()
     {
-        return ! empty($this->option('translatable'));
+        return !empty($this->option('translatable'));
     }
 
     /**
@@ -270,7 +270,7 @@ class CrudMakeCommand extends GeneratorCommand
                 $filter = 'partial';
             }
 
-            if (! empty($internal)) {
+            if (!empty($internal)) {
                 return "AllowedFilter::$filter('$name', '$internal'),";
             }
 
@@ -290,8 +290,8 @@ class CrudMakeCommand extends GeneratorCommand
     private function getCasts()
     {
         return collect($this->getFields())->filter(function ($type, $name) {
-            return ! Str::endsWith($name, '_id')
-                && ! in_array($name, $this->getTranslatableFields()->toArray(), true)
+            return !Str::endsWith($name, '_id')
+                && !in_array($name, $this->getTranslatableFields()->toArray(), true)
                 && in_array($type, [
                     'integer',
                     'float',
@@ -319,7 +319,7 @@ class CrudMakeCommand extends GeneratorCommand
     {
         return collect($array)->map(function ($multiple, $collection) {
             $line = "\$this->addMediaCollection('$collection')";
-            if (! filter_var($multiple, FILTER_VALIDATE_BOOL)) {
+            if (!filter_var($multiple, FILTER_VALIDATE_BOOL)) {
                 $line .= '->singleFile()';
             }
 

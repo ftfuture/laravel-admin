@@ -1,6 +1,6 @@
 <?php
 
-namespace Okami101\LaravelAdmin\Filters;
+namespace ftfuture\LaravelAdmin\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\QueryBuilder\Filters\Filter;

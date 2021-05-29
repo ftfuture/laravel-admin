@@ -7,17 +7,17 @@ ENV PGID ${PGID}
 
 # persistent / runtime deps
 RUN apk add --no-cache \
-		acl \
-		file \
-		gettext \
-		git \
-		openssl \
-		$PHPIZE_DEPS \
-		zlib-dev \
-        freetype-dev \
-        libjpeg-turbo-dev \
-        libpng-dev \
-	;
+    acl \
+    file \
+    gettext \
+    git \
+    openssl \
+    $PHPIZE_DEPS \
+    zlib-dev \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libpng-dev \
+    ;
 
 RUN docker-php-ext-install pdo_mysql && docker-php-ext-enable pdo_mysql
 RUN docker-php-ext-install exif && docker-php-ext-enable exif
