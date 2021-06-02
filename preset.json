@@ -31,7 +31,7 @@
             "locale": "en"
         },
         "vue-cli-plugin-vuetify-admin": {
-            "version": "../../lib/vuetify-admin/packages/admin",
+            "version": "../../lib/vuetify-admin/packages/cli",
             "apiURL": "http://localhost:8000",
             "dataProvider": "laravel",
             "authProvider": "sanctum",
