@@ -174,7 +174,7 @@ EOF
             'api',
             <<<EOF
         \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-        \ftufutre\LaravelAdmin\Http\Middleware\Impersonate::class,
+        \ftfuture\LaravelAdmin\Http\Middleware\Impersonate::class,
 
 EOF
         );
